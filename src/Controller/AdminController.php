@@ -47,13 +47,13 @@ class AdminController extends Controller
     public function edit(Questiontab $questions, Request $request,$id)
     {
         $form=$this->createForm(AddQuestionFormType::class,$questions);
-
+        $form->handleRequest($request);
+        if ($form->isSubmitted()){
+            $this->em->flush();
+        }
         return $this->render('admin/edit.html.twig',[
-            '$questions'=>$questions,
+            'questions'=>$questions,
             'form'=>$form->createView()]);
-
-
-
     }
     /**
      * @Route("/admin/delete{id}", name="delete")
