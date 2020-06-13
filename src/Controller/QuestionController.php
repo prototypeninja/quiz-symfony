@@ -32,13 +32,6 @@ class QuestionController extends Controller
                     $score++;
                 }
                 $i++;
-                if ($i==count($post)){
-
-                    break;
-
-                }
-
-                //echo intval(substr($key,-1));
 
             }
 
