@@ -62,6 +62,14 @@ body a:hover{
     background-color: #AA3333;
     font-size: 15px!important;
 }
+.alert{
+    white-space: initial;
+    width: 100%;
+
+}
+.input-group-prepend{
+    width: 100%;
+}
 
 
 

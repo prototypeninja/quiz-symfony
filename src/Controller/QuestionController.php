@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controller;
-
 use App\Entity\Questiontab;
 use App\Entity\Reponsetab;
 use App\Entity\Score;
@@ -90,7 +89,6 @@ class QuestionController extends Controller
         /*
          si le formulaire n'est pas soumit ou si on accès d'accedé a la vue result
         par url, une redirection est encrenché vers la page d'acceuile.
-
          */
         if (!isset($_POST['pseudo'])){
             return $this->redirectToRoute('home');
@@ -115,7 +113,4 @@ class QuestionController extends Controller
         }
 
     }
-
-
-
 }

@@ -16,12 +16,11 @@
                         {% for reponse in question.reponsetabs %}
                             <div class="input-group m-2 input-group-lg reponse-input">
                                 <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input class="reponse" type="radio" name="{{ question.id }}" value="{{ reponse.id }}" aria-label="Radio button for following text input">
-
+                                    <div class="alert  alert-dismissible fade show alert-success input-group-text"  role="alert">
+                                        <input  aria-label="Close"  type="radio" name="{{ question.id }}" value="{{ reponse.id }}">
+                                        &nbsp{{ reponse.reponses }}
                                     </div>
                                 </div>
-                                <span class="form-control bg-primary text-white span-r">{{ reponse.reponses }}</span>
                             </div>
                         {% endfor %}
                     </div>
