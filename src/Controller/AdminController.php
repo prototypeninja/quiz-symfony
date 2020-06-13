@@ -83,8 +83,6 @@ class AdminController extends Controller
         }else{
             return $this->render('admin/add.html.twig',['form'=>$form->createView()]);
         }
-
-
     }
 
     /**
@@ -103,6 +101,20 @@ class AdminController extends Controller
         }
 
         return $this->render('admin/addReponse.html.twig',['form'=>$form->createView()]);
+    }
+    /**
+     * @Route("/editReponse{id}", name="editReponse")
+     */
+    public function editReponse(Reponsetab $reponses,$id, Request $request)
+    {
+        $form=$this->createForm(ReponseFormType::class,$reponses);
+        $form->handleRequest($request);
+        if ($form->isSubmitted()){
+            $this->em->flush();
+        }
+        return $this->render('admin/editreponse.html.twig',[
+            'reponses'=>$reponses,
+            'form'=>$form->createView()]);
     }
 
 }
