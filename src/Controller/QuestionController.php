@@ -17,29 +17,29 @@ class QuestionController extends Controller
   //cette fonction permet de calculer le score et de retourne le score
 
 
-    public function findScore($post){
-        if (isset($post)){
-            
-            $score=0;
-            $nbrQuestion=count($post)-1;
-            foreach ($post as $key => $value){
-                if ($key!="pseudo"){
-                    $Reponses=$this->repReponse->find($value);
-                    $reponseStatu=$Reponses->getStatu();
-                  if ($reponseStatu){
+   public function findScore($post){
+    if (isset($post)){
+        $score=0;
+        $nbrQuestion=count($post)-1;
+        dump($nbrQuestion);
+        foreach ($post as $key => $value){
+            if ($key!="pseudo"){
+                $Reponses=$this->repReponse->find($value);
+                $reponseStatu=$Reponses->getStatu();
+                if ($reponseStatu){
+                    dump($reponseStatu);
                     $score++;
                 }
-                }
-                
-                
-
             }
 
-            $scoreFinale=$score."/".$nbrQuestion;
-        }
-        return $scoreFinale;
 
+        }
+
+        $scoreFinale=$score."/".$nbrQuestion;
     }
+    return $scoreFinale;
+
+}
 
     /**
      * @var $repScore;
