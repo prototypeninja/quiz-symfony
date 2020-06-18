@@ -27,7 +27,6 @@ class QuestionController extends Controller
                 $Reponses=$this->repReponse->find($value);
                 $reponseStatu=$Reponses->getStatu();
                 if ($reponseStatu){
-                    dump($reponseStatu);
                     $score++;
                 }
             }
