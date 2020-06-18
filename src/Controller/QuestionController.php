@@ -18,33 +18,33 @@ class QuestionController extends Controller
 
 
     public function findScore($post){
-        if (isset($post)){
-            $i = 0;
-            $score=0;
-            $nbrQuestion=count($post)-1;
-            foreach ($post as $key => $value){
-                if ($key!="pseudo"){
-                    $Reponses=$this->repReponse->find($value);
-                    $reponseStatu=$Reponses->getStatu();
-                }
+    if (isset($post)){
+        $score=0;
+        $nbrQuestion=count($post)-1;
+        dump($nbrQuestion);
+        foreach ($post as $key => $value){
+            if ($key!="pseudo"){
+                $Reponses=$this->repReponse->find($value);
+                $reponseStatu=$Reponses->getStatu();
                 if ($reponseStatu){
+                    dump($reponseStatu);
                     $score++;
                 }
-                $i++;
-
             }
 
-            $scoreFinale=$score."/".$nbrQuestion;
-        }
-        return $scoreFinale;
 
+        }
+
+        $scoreFinale=$score."/".$nbrQuestion;
     }
+    return $scoreFinale;
+
+}
 
     /**
      * @var $repScore;
      * @var QuestionsRepository;
      * @var ReponsesRepository;
-
      */
     private $repQuestion;
     private $repReponse;

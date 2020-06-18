@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controller;
-
 use App\Entity\Questiontab;
 use App\Entity\Reponsetab;
 use App\Form\AddQuestionFormType;
@@ -13,7 +12,6 @@ use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-
 class AdminController extends Controller
 {
     /**
@@ -94,7 +92,6 @@ class AdminController extends Controller
         $form=$this->createForm(ReponseFormType::class, $reponsetab);
         $form->handleRequest($request);
         if ($form-> isSubmitted()){
-            $intId=intval($id);
             $reponsetab->setQuestion($question);
             $this->em->persist($reponsetab);
             $this->em->flush();
@@ -116,5 +113,4 @@ class AdminController extends Controller
             'reponses'=>$reponses,
             'form'=>$form->createView()]);
     }
-
 }
